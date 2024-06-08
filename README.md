@@ -1,4 +1,4 @@
-full stack fantasy sports website back end sprong boot application that manipulates sql database and the front end could be a react js application
+Full Stack Fantasy Sports Website 
 
 Planning and Requirements Gathering:
 Define the scope and features of your fantasy sports website.
