@@ -42,8 +42,8 @@ Iterate and refine the application based on testing results and user feedback.
 Deployment and Hosting:
 Hosting on AWS.
 Configure the necessary environment variables and database connection settings for the production environment.
-Build and package the Spring Boot application into a deployable artifact (e.g., JAR or WAR file).
+Build and package the Spring Boot application into a deployable artifact 
 Deploy the backend application to the chosen hosting platform.
-Select a static hosting service for the frontend application (e.g., AWS S3, Netlify, Vercel).
+Select a static hosting service for the frontend application which is AWS S3
 Build the React application and deploy the optimized production build to the static hosting service.
 Configure any necessary DNS settings and domain mapping.
