@@ -1,0 +1,137 @@
+App Component:
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import LeagueList from './pages/LeagueList';
+import LeagueDetails from './pages/LeagueDetails';
+import PlayerList from './pages/PlayerList';
+import TeamList from './pages/TeamList';
+
+const App = () => {
+    return (
+        <Router>
+            <div>
+                <Navbar />
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/leagues" component={LeagueList} />
+                    <Route path="/league/:id" component={LeagueDetails} />
+                    <Route path="/players" component={PlayerList} />
+                    <Route path="/teams" component={TeamList} />
+                </Switch>
+            </div>
+        </Router>
+    );
+};
+
+export default App;
+
+
+Navbar Component:
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Navbar = () => {
+    return (
+        <nav>
+            <ul>
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+                <li>
+                    <Link to="/leagues">Leagues</Link>
+                </li>
+                <li>
+                    <Link to="/players">Players</Link>
+                </li>
+                <li>
+                    <Link to="/teams">Teams</Link>
+                </li>
+            </ul>
+        </nav>
+    );
+};
+
+export default Navbar;
+
+
+LeagueList Component:
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+
+const LeagueList = () => {
+    const [leagues, setLeagues] = useState([]);
+
+    useEffect(() => {
+        fetchLeagues();
+    }, []);
+
+    const fetchLeagues = async () => {
+        try {
+            const response = await axios.get('/api/leagues');
+            setLeagues(response.data);
+        } catch (error) {
+            console.error('Error fetching leagues:', error);
+        }
+    };
+
+    return (
+        <div>
+            <h2>League List</h2>
+            <ul>
+                {leagues.map(league => (
+                    <li key={league.id}>
+                        <Link to={`/league/${league.id}`}>{league.name}</Link>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+
+export default LeagueList;
+
+
+LeagueDetails Component:
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+
+const LeagueDetails = () => {
+    const { id } = useParams();
+    const [league, setLeague] = useState(null);
+
+    useEffect(() => {
+        fetchLeagueDetails();
+    }, []);
+
+    const fetchLeagueDetails = async () => {
+        try {
+            const response = await axios.get(`/api/leagues/${id}`);
+            setLeague(response.data);
+        } catch (error) {
+            console.error('Error fetching league details:', error);
+        }
+    };
+
+    if (!league) {
+        return <div>Loading...</div>;
+    }
+
+    return (
+        <div>
+            <h2>{league.name}</h2>
+            <p>Description: {league.description}</p>
+            <p>Number of Teams: {league.numberOfTeams}</p>
+            {/* Display other league details */}
+        </div>
+    );
+};
+
+export default LeagueDetails;
