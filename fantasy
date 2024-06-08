@@ -57,7 +57,6 @@ public class PlayerController {
 Frontend Development (React.js):
 a. Set up a new React project using Create React App:
 
-bash
 npx create-react-app fantasy-sports-frontend
 
 b. Create a component for displaying the list of players:
