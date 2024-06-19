@@ -27,7 +27,7 @@ Create components for managing teams, selecting players, and viewing leaderboard
 Implement forms for user input and handle form submissions.
 Integrate with the backend API endpoints using Axios or Fetch to retrieve and update data.
 Implement client-side routing using React Router for navigation between different pages/views.
-Apply styling to the components using CSS or a styling library like styled-components or CSS modules.
+Apply styling to the components using CSS or a styling library like styled components or CSS modules.
 Handle user authentication and authorization on the frontend to protect certain routes or components.
 Write unit tests for the frontend components using testing libraries like Jest and React Testing Library.
 
