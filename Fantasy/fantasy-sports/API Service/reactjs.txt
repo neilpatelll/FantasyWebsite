@@ -1,0 +1,16 @@
+Frontend Development (React.js)
+
+Step 1: Set Up React Project
+Open a terminal and run the following command to create a new React project:
+
+npx create-react-app fantasy-sports
+
+
+Navigate to the project directory:
+
+cd fantasy-sports
+
+Step 2: Project Structure and Dependencies
+Install additional dependencies:
+
+npm install axios react-router-dom styled-components

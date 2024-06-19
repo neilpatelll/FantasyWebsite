@@ -1,0 +1,13 @@
+Deployment and Hosting
+
+Backend Deployment:
+
+Package the Spring Boot application using mvn clean package.
+Deploy the JAR file to an AWS EC2 instance.
+Set up the MySQL database on AWS RDS.
+
+Frontend Deployment:
+
+Build the React application using npm run build.
+Deploy the build folder to AWS S3.
+Configure CloudFront for CDN and SSL.

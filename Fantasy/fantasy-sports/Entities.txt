@@ -1,0 +1,88 @@
+// User.java
+package com.example.fantasysports.entity;
+
+import javax.persistence.*;
+
+@Entity
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String username;
+    private String email;
+    private String password;
+
+    // Getters and setters
+}
+
+// Team.java
+package com.example.fantasysports.entity;
+
+import javax.persistence.*;
+
+@Entity
+public class Team {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    private String team_name;
+
+    // Getters and setters
+}
+
+// Player.java
+package com.example.fantasysports.entity;
+
+import javax.persistence.*;
+
+@Entity
+public class Player {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    private String team;
+    private String position;
+
+    @Column(columnDefinition = "json")
+    private String stats;
+
+    // Getters and setters
+}
+
+// TeamPlayer.java
+package com.example.fantasysports.entity;
+
+import javax.persistence.*;
+
+@Entity
+@IdClass(TeamPlayerId.class)
+public class TeamPlayer {
+    @Id
+    private Long team_id;
+
+    @Id
+    private Long player_id;
+
+    // Getters and setters
+}
+
+// TeamPlayerId.java
+package com.example.fantasysports.entity;
+
+import java.io.Serializable;
+import java.util.Objects;
+
+public class TeamPlayerId implements Serializable {
+    private Long team_id;
+    private Long player_id;
+
+    // Getters, setters, hashCode, equals
+}

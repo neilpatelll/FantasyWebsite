@@ -1,0 +1,37 @@
+// UserRepository.java
+package com.example.fantasysports.repository;
+
+import com.example.fantasysports.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+    User findByUsername(String username);
+}
+
+// TeamRepository.java
+package com.example.fantasysports.repository;
+
+import com.example.fantasysports.entity.Team;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TeamRepository extends JpaRepository<Team, Long> {
+}
+
+// PlayerRepository.java
+package com.example.fantasysports.repository;
+
+import com.example.fantasysports.entity.Player;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PlayerRepository extends JpaRepository<Player, Long> {
+}
+
+// TeamPlayerRepository.java
+package com.example.fantasysports.repository;
+
+import com.example.fantasysports.entity.TeamPlayer;
+import com.example.fantasysports.entity.TeamPlayerId;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TeamPlayerRepository extends JpaRepository<TeamPlayer, TeamPlayerId> {
+}
