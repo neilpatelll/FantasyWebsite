@@ -1,4 +1,4 @@
-#Full Stack Fantasy Sports Website 
+# Full Stack Fantasy Sports Website 
 
 Planning and Requirements Gathering:
 Define the scope and features of your fantasy sports website.
